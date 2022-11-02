@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% block title %}{{title}}{% endblock%}
+{% block content %}
+    <div class="gal-container">
+        <div class="banner">
+            <i class="fa-brands fa-envira"></i>
+                <h1>Welcome to my Gallery</h1>
+            <i class="fa-brands fa-envira icon"></i>
+        </div>
+        <div class="gal-row">
+            <div class="gal-col col-1">
+                {% for galOne in galOnes %}
+                <img src="{{ galOne.photo.url }}" alt="{{ galOne.caption }}" srcset="">
+                <figcaption class="caption">[{{ galOne.caption }}]</figcaption>
+                {% endfor %}
+            </div>
+            <div class="gal-col col-2">
+                {% for galTwo in galTwos %}
+                <img src="{{ galTwo.photo.url }}" alt="{{ galTwo.caption }}" srcset="">
+                <figcaption class="caption">[{{ galTwo.caption }}]</figcaption>
+                {% endfor %}
+            </div>
+            <div class="gal-col col-3">
+                {% for galThree in galThrees %}
+                <img src="{{ galThree.photo.url }}" alt="{{ galThree.caption }}" srcset="">
+                <figcaption class="caption">[{{ galThree.caption }}]</figcaption>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+{% endblock  %}

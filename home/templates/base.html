@@ -1,0 +1,194 @@
+{% load static %}
+{% load home_tags %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="{% static  'img/logo.png'%}" type="image/x-icon">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" /> 
+    <title>{% block Title %}{{ title }}{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'css/navbar.css' %}">
+    <link rel="stylesheet" href="{% static 'css/index.css' %}">
+    <link rel="stylesheet" href="{% static 'css/main.css' %}">
+    <link rel="stylesheet" href="{% static 'css/about.css' %}">
+    <link rel="stylesheet" href="{% static 'css/blog.css' %}">
+    <link rel="stylesheet" href="{% static 'css/detail.css' %}">
+    <link rel="stylesheet" href="{% static 'css/gallery.css' %}">
+</head>
+<body>
+    <!-- HEADER -->
+    <header class="header">
+        <nav class="nav">
+            <div class="menu__mobile sidenav" id="mySidenav">
+                <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+                <ul class="side__menu">
+                    <li class="menu-item"><a href="{% url 'home' %}">Home</a></li>
+                    <li class="menu-item"><a href="{% url 'about' %}">About</a></li>
+                    <li class="menu-item"><a href="{% url 'blog' %}">Stories</a></li>
+                    <li class="menu-item"><a href="{% url 'gallery' %}">Gallery</a></li>
+                </ul>
+            </div>
+            <div class="menu_btn menu__mobile" >
+                <i class="fa-solid fa-bars" onclick="openNav()"></i>
+            </div>
+            <a href="{%url 'home' %}" class="logo">
+                <h1>BERNICE</h1>
+                <p>The little Pawn</p>
+                <i class="fa-solid fa-chess-queen"></i>
+            </a>
+            <ul class="menu-list desktop">
+                <li class="menu-item"><a href="{% url 'home' %}">Home</a></li>
+                <li class="menu-item"><a href="{% url 'about' %}">About</a></li>
+                <li class="menu-item"><a href="{% url 'blog' %}">Stories</a></li>
+                <li class="menu-item"><a href="{% url 'gallery' %}">Gallery</a></li>
+            </ul>
+            <ul class="social-media">
+                <li><a href="https://twitter.com/BerniceWambui22" class="social-item"><i class="fa-brands fa-twitter twitter" ></i></a></li>
+                <li><a href="{% url 'post_feed' %}" class="social-item"><i class="fa-solid fa-square-rss rss"></i></a></li>
+            </ul>
+        </nav>
+    </header>
+    <span class="bar slideshow-text">
+        <i class="fa-solid fa-bell"></i>
+        {% for link in links %}
+            <a href="{{ link.url }}" class="text-Slides text-fade" target="_blank">
+                {{link.title}}
+            </a>
+        {% endfor %}
+    </span>
+    <!-- MAIN CONTENT -->
+    <main class="main" id="main">
+        {% block content %}
+            <section class=" feed">
+                <div class="content">
+                    <article class="cover">
+                        {% show_latest_posts_home 1 %}
+                    </article>
+                </div>
+                <!-- SIDEBAR -->
+                <aside class="sidebar side_twitter">
+                    <a class="twitter-timeline" data-height="600" href="https://twitter.com/BerniceWambui22?ref_src=twsrc%5Etfw">Tweets by BerniceWambui22</a> 
+                    <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+                </aside>
+            </section>
+            
+            
+            <section class="section about">
+                <h1>About me</h1>
+                {% for about in abouts %}
+                    <div class="container">
+                        <article class="about__text">
+                            <h2>{{ about.heading }}</h2>
+                            <div class="des">{{ about.description|safe}}</div>
+                        </article>
+                        <article class="about__img">
+                            <img src="{{ about.image.url }}" alt="">
+                        </article>
+                    </div>
+                {% endfor %}
+                <div class="more">
+                    <a href="{% url 'about'%}" class="button__more">Read more</a>
+                </div>
+            </section>
+
+            <section class="section story">
+                <h1>Latest Stories</h1>
+                <article class="post-card">
+                    {% show_posts_home 4 %}
+                </article>
+                <div class="more">
+                    <a href="{% url 'blog' %}" class="button__more">More Stories</a>
+                </div>
+            </section>
+        {% endblock  %}
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <section class="section partners">
+            <h3>Our Partners</h3>
+            <div class="container">
+                {% for partner in partners %}  
+                <a href="{{ partner.url }}" class="brand" target="_blank">
+                    <img src="{{ partner.logo.url }}" alt="{{partner.name}}" >
+                    <h5>{{ partner.name }}</h5>
+                </a>
+                {% endfor %}
+            </div>
+        </section>
+        
+            
+        <div class="footer__links">
+            <article class="footer__box">
+                <h4>Quick Links</h4>
+                <ul class="footer__row">
+                    <li class="footer__item"><a href="{% url 'home' %}" class="footer__link">Home</a></li>
+                    <li class="footer__item"><a href="{% url 'about' %}" class="footer__link">About</a></li>
+                    <li class="footer__item"><a href="{% url 'blog' %}" class="footer__link">Stories</a></li>
+                    <li class="footer__item"><a href="{% url 'gallery' %}" class="footer__link">Gallery</a></li>
+                </ul>
+            </article>
+
+            <article class="footer__box">
+                <h4>Partners</h4>
+                <ul class="footer__row">
+                    {% for partner in partners %}  
+                        <li class="footer__item">
+                            <a href="{{ partner.url }}" class="footer__link" target="_blank">{{ partner.name }}</a>
+                        </li>
+                    {% endfor %}
+                </ul>
+            </article>
+            <article class="footer__box">
+                <h4>Follow Us</h4>
+                <ul class="footer__row">
+                    <li class="footer__item">
+                        <a href="https://twitter.com/BerniceWambui22" class="footer__link" target="_blank"><i class="fa-brands fa-twitter">
+                            </i>Twitter</a>
+                    </li>
+                    <li class="footer__item"><a href="{% url 'post_feed' %}" class="footer__link" target="_blank">
+                        <i class="fa-solid fa-square-rss"></i>RSS Feed</a>
+                    </li>
+                    <li class="footer__item"></li>
+                </ul>
+            </article>
+            <article class="footer__box">
+                <h4>Contact Us</h4>
+                <ul class="footer__row">
+                    <li class="footer__item">
+                        <a href="#" class="footer__link">
+                            <i class="fa-solid fa-phone"></i> +254-014-547-987
+                        </a>
+                    </li>
+                    <li class="footer__item">
+                        <a href="#" class="footer__link">
+                            <i class="fa-solid fa-envelope"></i> 
+                            info@thelittlepawn.com
+                        </a>
+                    </li>
+                    <li class="footer__item">
+                        <a href="#" class="footer__link">
+                            <i class="fa-solid fa-location-dot"></i>
+                            Nairobi, KE
+                        </a>
+                    </li>
+                </ul>
+            </article>
+        </div>
+        <div class="copyright">
+            <small>
+                Thelittlepawn all the rigths reserved, copyright © 2022. Powered by 
+                <a href="https://twitter.com/MouctarDaka" target="_blank">Mouctar</a>
+            </small>
+        </div>
+    </footer>
+    <!-- SCRIPT -->
+    <script src="{% static 'js/index.js' %}"></script>
+    <script src="{% static 'js/bar.js' %}"></script>
+</body>
+</html>

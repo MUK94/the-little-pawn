@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+    {% block title %}{{title}}{% endblock title%}
+{% block content %}
+    <div class="about-container">
+        <div class="row-about"> 
+            {% for about in abouts %}
+                <div class="about-row-img about-col">
+                    <img src="{{ about.image.url }}" class="" alt="">
+                    <div class="contact">
+                        <p><i class="fa-solid fa-location-dot"></i>KE, Nairobi</p>
+                        <p><i class="fa-solid fa-phone-volume"></i>(+254) XXX-XX-XX</p>
+                        <p><i class="fa-solid fa-envelope"></i>
+                            <a href="mailto:contact@thelittlepawn.com">contact@thelittlepawn.com</a>
+                        </p>
+                    </div>
+                </div>
+                <div class="about-row-text about-col">
+                    <h2>{{ about.heading }}</h2>
+                    <p>{{ about.description|safe }}</p>
+                </div>
+            {% endfor %}
+        </div>
+        <div class="about-row-achievement about-col">
+            <h3><i class="fa-solid fa-trophy"></i>Achievement<i class="fa-solid fa-trophy"></i></h3>
+            {% for achievement in achievements %}
+                <div class="achievement">
+                    <a href="{{ achievement.link }}" target="_blank">
+                        {{ achievement.title }}
+                    </a>
+                </div>                
+            {% endfor %}            
+        </div>
+    </div>
+{% endblock%}
+
+

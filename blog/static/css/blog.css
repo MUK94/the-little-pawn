@@ -1,0 +1,125 @@
+.blog-container .tag-result {
+    text-align: center;
+}
+.blog-box{
+    display: grid;
+    grid-template-columns: auto 25rem;
+    gap: 1.1rem;
+}
+.blogfeed{
+    grid-row: 1 / span 2;
+    border-top: var(--border);
+}
+.blog-row {
+    border-bottom: var(--border);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+    padding: 1rem 0.75rem;
+}
+.post-desc {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.author{
+    display: flex;
+    align-items: center;
+}
+.author img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 0.25rem;
+    border: var(--border);
+}
+.post-link h1 {
+    font-size: 1.9rem;
+}
+.post-link h1:hover {
+    color: var(--color-primary);
+    text-decoration: underline;
+}
+
+.post-img img {
+    border-radius: var(--border-rad);
+    width: 250px;
+    height: 180px;
+    margin-left: 1.5rem;
+}
+.blog-row .post-info{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-bottom: 1.25rem;
+}
+.blog-row .post-info .date {
+    font-size: 1rem;
+    font-weight: 300;
+}
+.blog-container .popular{
+    padding: 0.75rem;
+    border-radius: var(--border-rad);
+    background-color: var(--content-background);
+    box-shadow: var(--box-shadow-white);
+}
+
+/* Pagination */
+.pagination {
+    padding-top: 5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.step-links {
+    background-color: #9999;
+    padding: 0.5rem 1rem;
+    border-radius: var(--border-rad);
+    box-shadow: var(--box-shadow-white);
+}
+.step-links a {
+    color: blue;
+    text-decoration: underline;
+}
+
+/* Responsive */
+@media only screen and (max-width: 1260px) {
+    .blog-box{
+        grid-template-columns: auto 15rem;
+        gap: 1rem;
+    }
+}
+
+@media only screen and (max-width: 950px ){ 
+    .blog-box{
+        grid-template-columns: auto 
+    }  
+    .blog-container .popular {
+        display: none;
+    }
+}
+
+@media only screen and (max-width: 700px ){
+    .post-link h1 {
+        font-size: 1.5rem;
+    }
+    .post-img img {
+        border-radius: var(--border-rad);
+        width: 180px;
+        height: 140px;
+        margin-left: 0.25rem;
+    }
+}
+
+@media only screen and (max-width: 370px ){
+    .post-link h1 {
+        font-size: 1.2rem;
+    }
+    .post-img img {
+        border-radius: var(--border-rad);
+        width: 120px;
+        height: 100px;
+    }
+}

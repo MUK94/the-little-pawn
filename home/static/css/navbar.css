@@ -1,0 +1,150 @@
+.header {
+    height: 6rem;
+    display: flex;
+    flex-direction: column;
+}
+.nav{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 6rem;
+    width: 100%;
+    position: fixed;
+    z-index: 100;
+    background-color: var(--content-background);
+}
+.nav a {
+    text-decoration: none;
+    color: inherit;
+}
+.nav ul {
+    list-style: none;
+    display: flex;
+}
+
+.nav .social-media {
+    justify-content: flex-end;
+}
+.nav .menu-list{
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+.nav .menu-list li {
+    font-size: 1.5rem;
+    padding: 1.65rem 2rem;
+    font-weight: 300;
+}
+.nav .logo {
+    display: flex;
+    flex-direction: column;
+    line-height: 1.8rem;
+    align-items: center;
+}
+.nav .logo p{
+    font-size: 1.1rem;
+    font-weight: 300;
+}
+.nav .logo i {
+    font-size: 1.7rem;
+}
+.menu-list li:hover{
+    border-bottom: 3px solid var(--color-primary);
+    color: var(--color-primary-darker);
+}
+.social-media li {
+    padding: 1.2rem 0.5rem;
+    font-size: 1.3rem;
+    cursor: pointer;
+}
+.social-media i{
+    font-size: 2.4rem;
+}
+.social-item .twitter {
+    color:  #1da1f2;
+}
+.social-item .twitch {
+    color:  #9146ff;
+}
+.social-item .rss {
+    color:  #ee802f;
+}
+
+
+/* Mobile */
+.nav .mobile, 
+.nav .menu__mobile{
+    display: none;
+}
+
+/* Respomsive Design */
+@media only screen and (max-width : 780px ) {
+    .nav .desktop {
+        display: none;
+    }
+    .nav .menu__mobile {
+        display: flex;
+    }
+    .header {
+        height: 5rem;
+    }
+    .nav {
+        height: 5.5rem;
+    }
+    .nav .menu__mobile i{
+        font-size: 2rem;
+        cursor: pointer;
+    }
+    .nav .logo {
+        line-height: 1.4rem;
+    }
+    .nav .logo h1 {
+        font-size: 1.5rem;
+    }
+    .nav .logo p{
+        font-size: 0.9rem;
+        font-weight: 300;
+    }
+    .nav .logo i,
+    .social-media i {
+        font-size: 1.6rem;
+    }
+    .social-media li {
+        padding: 1.2rem 0.25rem;
+        font-size: 1.3rem;
+        cursor: pointer;
+    }
+    .sidenav {
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+        width: 0;
+        position: fixed;
+        top: 0;
+        left: 0;
+        background-color: var(--content-background);
+        overflow-x: hidden;
+        transition: 0.5s;
+        border-radius: 0 var(--border-rad) var(--border-rad) 0;
+    }
+    .sidenav .closebtn {
+        position: relative;
+        left: 90%;
+        font-size: 2.5rem;
+    }
+    .side__menu {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding-top: 2rem;
+    }
+    .side__menu li {
+        padding: 1rem 11.5rem;
+        font-size: 1.6rem;
+    }
+    .side__menu li:hover {
+        background-color: var(--color-primary-darker);
+        color: var(--content-background);
+    }
+}

@@ -1,0 +1,130 @@
+:root{
+    /* --color-primary: #ff585f; */
+    --color-primary: #5ec576;
+    --color-secondary: #ffcb03;
+    /* --color-primary:#04182f; */
+    --color-tertiary: #ff585f;
+    --color-primary-darker: #358347;
+    /* --color-primary-darker: #ff3e48; */
+    --color-secondary-darker: #ffbb00;
+    --color-tertiary-darker: #fd424b;
+    --color-primary-opacity: #5ec5763a;
+    --color-secondary-opacity: #ffcd0331;
+    --color-tertiary-opacity: #ff58602d;
+    --color-text: #222;
+    --gradient-primary: linear-gradient(to top right, #39b385, #9be15d);
+    --gradient-secondary: linear-gradient(to top left, #ffb003, #ffcb03);
+  
+    /* lengths and sizes */
+    --box-shadow: 0 0.5rem 0.5rem 0 #f3f3f3;
+    --box-shadow-white: 0 0.75rem 0.75rem 0 #e2e2e2;
+    --btn-color-hover: #f3f3f3;
+    --content-background: #ffffff;
+    --border: 1px solid #ddd;
+    --borderbottom: 1px solid #ccc;
+    --border-rad: 0.5rem;
+    --background: #efefef,
+}
+  
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit;
+}
+  
+html{
+    box-sizing: border-box;
+    font-size: 75.5%;
+}
+  
+body {
+    font-family: 'Lato', sans-serif;
+    font-weight: 400;
+    line-height: 1.95;
+    background-color: #efefef;
+    font-size: 1.1rem;
+    color: #222;
+    height: 100%;
+}
+body p {
+    line-height: 2rem;
+    font-size: 1.25rem;
+}
+/* layout */
+
+nav, main, .footer__links {
+    padding: 1rem 12rem;
+}
+
+h3 {
+    padding-bottom: 1.5rem;
+    text-align: center;
+    font-size: 1.65rem;
+    color: var(--color-primary);
+}
+.section {
+    padding: 10rem 0;
+    border-top: var(--border);
+}
+
+a{
+    text-decoration: none;
+    color: var(--color-text);
+}
+
+section h1{
+    text-align: center;
+    font-size: 3rem;
+    font-weight: 600;
+    padding-bottom: 4rem;
+    color: var(--color-primary);
+}
+
+.tags{
+    font-size: 1.4rem;
+}
+.tags a,
+.tagged{
+    color: blue;
+    font-weight: bold;
+}
+
+.more {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 2.5rem 0;
+}
+
+
+/* Respomsive Design */
+@media only screen and (max-width: 1260px ) {
+    nav, main, .footer__links {
+        padding: 1rem 4rem;
+    } 
+    .section {
+        padding: 5rem 0;
+    }
+}
+
+@media only screen and (max-width: 950px ) {
+    nav, main, .footer__links {
+        padding: 0.75rem 0.5rem;
+    } 
+    .section {
+        padding: 2rem 0;
+    }
+    section h1{
+        font-size: 2.4rem;
+        padding-bottom: 2.5rem;
+        font-weight: 600;
+        color: var(--color-primary);
+    }
+    h2 {
+        font-size: 1.4rem;
+    }
+    .tags{
+        font-size: 1rem;
+    }
+
+}

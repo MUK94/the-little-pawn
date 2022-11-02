@@ -1,0 +1,47 @@
+.gal-container .banner {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 3rem;
+}
+.gal-container .banner i {
+    font-size: 3rem;
+    color: var(--color-primary);
+    margin: 0.5rem;
+}
+.banner .icon {
+    transform: rotate(90deg);
+}
+.gal-row{
+    display: grid;
+    grid-template-columns: auto auto auto;
+    gap: 1rem;
+}
+
+.gal-col {
+    cursor: pointer;
+}
+.gal-col img{
+    max-width: 100%;
+    border-radius: var(--border-rad);
+}
+.gal-col img:hover{
+    transform: scale(1.015);
+}
+
+.gal-col figcaption{
+    text-align: center;
+    margin-bottom: 0.75rem;
+    font-weight: 500;
+}
+
+
+/* Responsive */
+@media only screen and (max-width : 490px ) {
+    .gal-container h1 {
+        font-size: 1.6rem;
+    }
+    .gal-row{
+        gap: 0.25rem;
+    }
+}

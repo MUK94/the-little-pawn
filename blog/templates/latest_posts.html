@@ -1,0 +1,8 @@
+<div class="side-latest">
+    {% for post in latest_posts %}
+        <a href="{{ post.get_absolute_url }}">
+            <h1>{{ post.title }}</h1>
+            <img src="{{post.image.url}}" alt="{{post.title}}">
+        </a>
+    {% endfor %}
+</div>
